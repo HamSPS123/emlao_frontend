@@ -1,0 +1,48 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Header -->
+    <div class="flex flex-col shadow bg-card">
+
+        <!-- Cover image -->
+        <div>
+            <img class="object-cover h-40 lg:h-80" [src]="shop.image.cover" alt="Cover image">
+        </div>
+
+        <!-- User info -->
+        <div class="flex flex-col items-center w-full max-w-5xl px-8 mx-auto flex-0 lg:flex-row lg:h-18 bg-card">
+
+            <!-- Avatar -->
+            <div class="rounded-full -mt-26 lg:-mt-22">
+                <img class="w-32 h-32 rounded-full ring-4 ring-bg-card" [src]="shop.image.profile" alt="User avatar">
+            </div>
+
+            <!-- Details -->
+            <div class="flex flex-col items-center mt-4 lg:items-start lg:mt-0 lg:ml-8">
+                <div class="text-lg font-bold leading-none">{{shop.name}}</div>
+                <div class="text-secondary">{{shop.description}}</div>
+            </div>
+
+            <!-- Menu -->
+            <div class="flex items-center mt-8 mb-4 space-x-6 lg:m-0 lg:ml-auto">
+                <a class="text-secondary" [routerLink]="['./']">
+                    Home
+                </a>
+                <a class="text-secondary" [routerLink]="['./about']">
+                    About
+                </a>
+                <a class="text-secondary" [routerLink]="['./map']">
+                    Map
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Main -->
+    <div class="w-full max-w-5xl p-6 mx-auto sm:p-8">
+        <router-outlet></router-outlet>
+    </div>
+
+
+</div>

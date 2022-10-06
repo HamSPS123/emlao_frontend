@@ -1,0 +1,68 @@
+<div class="w-full p-2 mx-auto sm:max-w-5xl sm:p-8" *ngIf="carts">
+    <fuse-card class="flex flex-col w-full p-2 sm:p-8 filter-article mb-4">
+        <div class="text-2xl font-semibold leading-tight">Orders #000001</div>
+        <mat-divider class="my-4"></mat-divider>
+        <div class="w-full flex flex-col gap-4">
+            <ul *ngFor="let item of carts; let i = index">
+                <li class="flex flex-auto gap-2 sm:gap-8 justify-between items-start sm:items-center mb-4 border-b px-3 sm:px-8 py-4">
+                    <img [src]="item.image" alt="product" class="w-30 max-w-40 h-30 object-cover rounded-lg">
+                    <div class="flex-1 w-full flex gap-4 flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div class="text-2xl font-semibold w-full sm:w-60">{{item.title}}</div>
+                        <div class="text-lg font-semibold">{{item.price}}</div>
+                        <div class="flex justify-between w-full max-w-26 ">
+                            <button mat-icon-button color="primary" aria-label="Minus">
+                                <mat-icon svgIcon="heroicons_outline:minus"></mat-icon>
+                            </button>
+                            <input type="text" value="{{item.qty}}" class="text-center w-full">
+                            <button mat-icon-button color="primary" aria-label="Plus">
+                                <mat-icon svgIcon="heroicons_outline:plus"></mat-icon>
+                            </button>
+                        </div>
+                        <div class="text-lg font-semibold">{{item.price * item.qty}}</div>
+                    </div>
+                    <div><button mat-icon-button color="warn">
+                            <mat-icon svgIcon="heroicons_solid:trash"></mat-icon>
+                        </button></div>
+                </li>
+            </ul>
+            <div class="flex flex-col sm:flex-row gap-4 sm:ml-auto">
+                <button mat-stroked-button color="warn">Update</button>
+                <button mat-raised-button color="warn">Clear</button>
+            </div>
+        </div>
+    </fuse-card>
+    <fuse-card class="flex flex-col w-full p-4 sm:p-8 filter-article">
+        <div class="text-2xl font-semibold leading-tight">Total</div>
+        <mat-divider class="my-4"></mat-divider>
+        <div class="flex flex-col gap-4 mb-4">
+            <div class="flex flex-row justify-between">
+                <h5>Amount</h5>
+                <p>60.000</p>
+            </div>
+            <div class="flex flex-row justify-between">
+                <h5>Tax</h5>
+                <p>5.000</p>
+            </div>
+            <div class="flex flex-row justify-between">
+                <h5>Discount</h5>
+                <p>0</p>
+            </div>
+            <div class="flex flex-row justify-between">
+                <h5>Sub-total</h5>
+                <p>65.000</p>
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 sm:ml-auto">
+            <button mat-raised-button color="warn">Pay</button>
+            <button mat-stroked-button color="warn" routerLink="/shop">Back to shop</button>
+        </div>
+    </fuse-card>
+</div>
+
+<div class="w-full p-2 mx-auto sm:max-w-5xl sm:p-8 h-screen" *ngIf="!carts">
+    <fuse-card class="p-4 sm:p-8 flex flex-col gap-4 items-center justify-center">
+        <img src="assets/images/empty_cart.svg" alt="empty cart" class="w-full max-w-xl mx-auto">
+
+        <button mat-raised-button color="primary" routerLink="/shop" class="sm:max-w-60">Back to Shop</button>
+    </fuse-card>
+</div>

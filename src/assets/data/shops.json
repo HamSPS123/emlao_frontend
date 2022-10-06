@@ -1,0 +1,55 @@
+[{
+        "id": 1,
+        "name": "Shop 1",
+        "description": "Meat Slice, Bacon, Ham.",
+        "review": 4.5,
+        "contact": {
+            "address": "123456",
+            "email": "example@gmail.com",
+            "tel": "+85620 xxxx xxxx",
+            "line": "",
+            "whatapp": "",
+            "website": ""
+        },
+        "image": {
+            "cover": "assets/images/store1.jpg",
+            "profile": "assets/images/store1.jpg"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Shop 2",
+        "description": "lorem ipsum",
+        "review": 4.5,
+        "contact": {
+            "address": "",
+            "email": "",
+            "tel": "",
+            "line": "",
+            "whatapp": "",
+            "website": ""
+        },
+        "image": {
+            "cover": "assets/images/store2.jpg",
+            "profile": "assets/images/store2.jpg"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Shop 3",
+        "description": "lorem ipsum",
+        "review": 4.5,
+        "contact": {
+            "address": "",
+            "email": "",
+            "tel": "",
+            "line": "",
+            "whatapp": "",
+            "website": ""
+        },
+        "image": {
+            "cover": "assets/images/store3.jpg",
+            "profile": "assets/images/store3.jpg"
+        }
+    }
+]

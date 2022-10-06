@@ -1,0 +1,59 @@
+<fuse-loading-bar>
+</fuse-loading-bar>
+
+<ng-container *ngIf="isScreenSmall">
+    <fuse-vertical-navigation class="bg-gray-900 dark print:hidden" [mode]="'over'" [name]="'mainNavigation'" [navigation]="navigation.default" [opened]="false">
+
+        <ng-container fuseVerticalNavigationContentHeader>
+
+            <div class="flex items-center h-20 px-8 pt-6">
+                <!-- <img class="w-24" src="assets/images/logo/logo-text-on-dark.svg" alt="Logo image"> -->
+                <h1 class="text-4xl font-bold"><span class="text-red-500">eM</span>Lao</h1>
+            </div>
+        </ng-container>
+    </fuse-vertical-navigation>
+</ng-container>
+
+<div class="flex flex-col flex-auto w-full min-w-0">
+
+
+    <div class="sticky top-0 left-0 flex items-center w-full h-16 px-4 shadow flex-0 sm:h-20 md:px-6 z-49 dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden">
+        <ng-container>
+
+            <div class="flex items-center mx-2 lg:mr-8">
+                <div class="flex">
+                    <!-- <img class="w-24 dark:hidden" src="assets/images/logo/logo-text.svg">
+                    <img class="hidden w-24 dark:flex" src="assets/images/logo/logo-text-on-dark.svg"> -->
+                    <h1 class="text-3xl font-bold"><span class="text-red-500">eM</span>Lao</h1>
+                </div>
+                <!-- <img class="flex w-8 lg:hidden" src="assets/images/logo/logo.svg"> -->
+            </div>
+
+            <fuse-horizontal-navigation class="mr-2" [name]="'mainNavigation'" *ngIf="!isScreenSmall" [navigation]="navigation.horizontal"></fuse-horizontal-navigation>
+        </ng-container>
+
+
+        <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
+            <search [appearance]="'bar'"></search>
+            <shortcuts></shortcuts>
+            <carts></carts>
+            <user></user>
+        </div>
+        <ng-container *ngIf="isScreenSmall">
+            <button mat-icon-button (click)="toggleNavigation('mainNavigation')">
+                <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+            </button>
+        </ng-container>
+    </div>
+
+
+    <div class="flex flex-col flex-auto w-full">
+        <router-outlet *ngIf="true"></router-outlet>
+    </div>
+
+
+    <div class="relative flex items-center w-full px-4 text-center bg-red-600 border-t flex-0 h-14 sm:h-20 md:px-6 z-49 dark:bg-transparent print:hidden">
+        <span class="w-full font-medium text-white">CSC Lao &copy; {{currentYear}}</span>
+    </div>
+
+</div>

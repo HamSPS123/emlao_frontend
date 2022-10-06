@@ -1,0 +1,144 @@
+[{
+        "id": 1,
+        "name": "Back Rib",
+        "price": 80000,
+        "shop": 1,
+        "category": {
+            "id": 1,
+            "name": "Rib"
+        },
+        "images": [
+            "assets/images/menu1.jfif"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Blade Roast",
+        "price": 80000,
+        "shop": 1,
+        "category": {
+            "id": 2,
+            "name": "Chuck"
+        },
+        "images": [
+            "assets/images/menu2.jfif"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Bottom Round Roast",
+        "price": 80000,
+        "shop": 1,
+        "category": {
+            "id": 3,
+            "name": "Round"
+        },
+        "images": [
+            "assets/images/menu3.jfif"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Round Steak",
+        "price": 80000,
+        "shop": 1,
+        "category": {
+            "id": 3,
+            "name": "Round"
+        },
+        "images": [
+            "assets/images/menu4.jfif"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Top Loin Steak",
+        "price": 80000,
+        "shop": 1,
+        "category": {
+            "id": 4,
+            "name": "Loin"
+        },
+        "images": [
+            "assets/images/menu5.jfif"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Under Blade Pot Roast",
+        "price": 80000,
+        "shop": 1,
+        "category": {
+            "id": 2,
+            "name": "Chuck"
+        },
+        "images": [
+            "assets/images/menu6.jfif"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Round Steak",
+        "price": 80000,
+        "shop": 2,
+        "category": {
+            "id": 5,
+            "name": "Round"
+        },
+        "images": [
+            "assets/images/menu4.jfif"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Top Loin Steak",
+        "price": 80000,
+        "shop": 2,
+        "category": {
+            "id": 6,
+            "name": "Loin"
+        },
+        "images": [
+            "assets/images/menu5.jfif"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Under Blade Pot Roast",
+        "price": 80000,
+        "shop": 2,
+        "category": {
+            "id": 7,
+            "name": "Chuck"
+        },
+        "images": [
+            "assets/images/menu6.jfif"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Back Rib",
+        "price": 80000,
+        "shop": 3,
+        "category": {
+            "id": 8,
+            "name": "Rib"
+        },
+        "images": [
+            "assets/images/menu1.jfif"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Blade Roast",
+        "price": 80000,
+        "shop": 3,
+        "category": {
+            "id": 9,
+            "name": "Chuck"
+        },
+        "images": [
+            "assets/images/menu2.jfif"
+        ]
+    }
+]
