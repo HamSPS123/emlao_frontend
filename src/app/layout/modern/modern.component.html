@@ -24,7 +24,7 @@
                 <div class="flex">
                     <!-- <img class="w-24 dark:hidden" src="assets/images/logo/logo-text.svg">
                     <img class="hidden w-24 dark:flex" src="assets/images/logo/logo-text-on-dark.svg"> -->
-                    <h1 class="text-3xl font-bold"><span class="text-red-500">eM</span>Lao</h1>
+                    <a routerLink="/home" class="text-3xl font-bold"><span class="text-red-500">eM</span>Lao</a>
                 </div>
                 <!-- <img class="flex w-8 lg:hidden" src="assets/images/logo/logo.svg"> -->
             </div>
@@ -35,7 +35,7 @@
 
         <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
             <search [appearance]="'bar'"></search>
-            <shortcuts></shortcuts>
+            <shortcuts *ngIf="user"></shortcuts>
             <carts></carts>
             <user></user>
         </div>

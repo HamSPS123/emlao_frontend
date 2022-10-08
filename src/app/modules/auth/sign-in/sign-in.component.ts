@@ -8,6 +8,8 @@ import {
     RxwebValidators,
     ReactiveFormConfig,
 } from '@rxweb/reactive-form-validators';
+import { AccountService } from 'app/core/services/account.service';
+import { JwtService } from 'app/core/services/jwt.service';
 import { UtilsService } from 'app/shared/services/utils.service';
 import { AuthService } from '../common/auth.service';
 import { SignInModel } from '../common/sign-in.model';
@@ -32,7 +34,9 @@ export class SignInComponent implements OnInit {
     constructor(
         private fb: UntypedFormBuilder,
         private utilsService: UtilsService,
-        private authService: AuthService
+        private authService: AuthService,
+        private jwtService: JwtService,
+        private accountService: AccountService
     ) {
         ReactiveFormConfig.set(this.utilsService.validationMessages);
     }
@@ -63,9 +67,11 @@ export class SignInComponent implements OnInit {
         const formData = this.formGroup.value;
 
         this.authService.signIn(formData).subscribe({
-            next: (token) => {
-                if (token) {
-                    console.log(token);
+            next: (response) => {
+                if (response) {
+                    const token = response.accessToken;
+                    this.jwtService.setToken(token);
+                    this.accountService.getProfile();
                 }
             },
             error: (error) => {

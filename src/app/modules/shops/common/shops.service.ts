@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment.prod';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Category } from './categories.interface';
 import { Product } from './products.interface';
@@ -12,6 +13,8 @@ import { Shop } from './shops.interface';
     providedIn: 'root',
 })
 export class ShopsService {
+    apiUrl: string;
+
     private dataStore: { items: any[] } = { items: [] };
 
     private shop: BehaviorSubject<Shop> = new BehaviorSubject(null);
@@ -29,26 +32,29 @@ export class ShopsService {
     private product: BehaviorSubject<Category> = new BehaviorSubject(null);
     readonly product$ = this.product.asObservable();
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+        this.apiUrl = environment.apiUrl;
+    }
 
     findShop(): Observable<Shop[]> {
-        const path: string = 'assets/data/shops.json';
+        const url: string = `${this.apiUrl}/shops`;
 
-        return this.http.get<Shop[]>(path).pipe(
-            tap((res: Shop[]) => {
-                this.dataStore.items = [];
-                this.dataStore.items = res;
-                this.shops.next(Object.assign({}, this.dataStore).items);
+        return this.http.get<Shop[]>(url).pipe(
+            tap((response: any) => {
+                if(response.statusCode === 200 && response.data){
+                    this.dataStore.items = response.data;
+                    this.shops.next(Object.assign({}, this.dataStore).items);
+                }
             })
         );
     }
 
-    findShopOne(id: number) {
+    findShopOne(id: string) {
         const path: string = 'assets/data/shops.json';
 
         return this.http.get<Shop[]>(path).pipe(
             tap((res: Shop[]) => {
-                const shop = res.filter((item) => item.id === id);
+                const shop = res.filter((item) => item._id === id);
 
                 this.shop.next(shop[0]);
             })

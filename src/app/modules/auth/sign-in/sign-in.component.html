@@ -8,7 +8,7 @@
             </div>
 
             <!-- Title -->
-            <div class="mt-8 text-3xl font-extrabold leading-tight tracking-tight text-center">Sign in</div>
+            <div class="mt-8 text-3xl font-extrabold leading-tight tracking-tight text-center">ເຂົ້າສູ່ລະບົບ</div>
 
             <!-- Alert -->
             <fuse-alert class="mt-8 -mb-4" *ngIf="showAlert" [appearance]="'outline'" [showIcon]="false" [type]="alert.type" [@shake]="alert.type === 'error'">
@@ -20,7 +20,7 @@
 
                 <!-- Email field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Email address</mat-label>
+                    <mat-label>ອີເມວ <span class="text-red-500">*</span></mat-label>
                     <input id="email" matInput formControlName="username">
 
                     <mat-error *ngIf="controls?.username?.errors">
@@ -29,7 +29,7 @@
                 </mat-form-field>
                 <!-- Password field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Password</mat-label>
+                    <mat-label>ລະຫັດຜ່ານ <span class="text-red-500">*</span></mat-label>
                     <input id="password" matInput type="password" formControlName="password" #passwordField>
                     <button mat-icon-button type="button" (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'" matSuffix>
                         <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'password'"
@@ -45,28 +45,28 @@
                 <!-- Actions -->
                 <div class="inline-flex items-end justify-between w-full mt-1.5">
                     <div></div>
-                    <a class="font-medium text-md text-primary-500 hover:underline" [routerLink]="['/forgot-password']">Forgot password?
+                    <a class="font-medium text-md text-primary-500 hover:underline" [routerLink]="['/forgot-password']">ລືມລະຫັດຜ່ານ?
                     </a>
                 </div>
 
                 <!-- Submit button -->
-                <button class="w-full mt-6 fuse-mat-button-large" mat-flat-button [color]="'primary'">
+                <button type="button" (click)="signIn()" class="w-full mt-6 fuse-mat-button-large" mat-flat-button [color]="'primary'">
                     <span>
-                        Sign in
+                        ລ໊ອກອິນ
                     </span>
                 </button>
 
                 <!-- Separator -->
-                <div class="flex items-center mt-8">
+                <div class="flex items-center my-4">
                     <div class="flex-auto mt-px border-t"></div>
-                    <div class="mx-2 text-secondary">Or continue with</div>
+                    <div class="mx-2 text-secondary">ຫຼື</div>
                     <div class="flex-auto mt-px border-t"></div>
                 </div>
 
                 <!-- Single sign-on buttons -->
-                <div class="flex items-center mt-8 space-x-4">
+                <div class="flex items-center space-x-4">
                     <button class="flex-auto" type="button" mat-stroked-button color="warn">
-                        Sign up
+                        ລົງທະບຽນ
                     </button>
                 </div>
             </form>

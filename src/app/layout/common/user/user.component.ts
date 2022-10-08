@@ -10,8 +10,9 @@ import {
 import { Router } from '@angular/router';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Subject, takeUntil } from 'rxjs';
-import { User } from 'app/core/user/user.types';
-import { UserService } from 'app/core/user/user.service';
+import { AccountService } from 'app/core/services/account.service';
+import { User } from 'app/shared/interfaces/user.interface';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
     selector: 'user',
@@ -27,7 +28,6 @@ export class UserComponent implements OnInit, OnDestroy {
 
     @Input() showAvatar: boolean = true;
     user: User;
-    token: string;
 
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -37,70 +37,34 @@ export class UserComponent implements OnInit, OnDestroy {
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private _router: Router,
-        private _userService: UserService
+        private accountService: AccountService,
+        private storage: LocalStorageService
     ) {}
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On init
-     */
     ngOnInit(): void {
-        this.token = localStorage.getItem('accessToken');
         this.getUser();
     }
 
-    getUser(): void{
-        this._userService.user$
-        .pipe(takeUntil(this._unsubscribeAll))
-        .subscribe((user: User) => {
-
-            if(this.token && this.token !== null){
-                this.user = user;
-            }else{
-                this.showAvatar = false;
-                this.user = {};
-            }
+    getUser(): void {
+        this.user = this.accountService.getUserLogin();
+        this.storage.observe('USER').subscribe((value) => {
+            this.user = value;
             this._changeDetectorRef.markForCheck();
         });
     }
 
-    /**
-     * On destroy
-     */
     ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Update the user status
-     *
-     * @param status
-     */
     updateUserStatus(status: string): void {
-        // Return if user is not available
         if (!this.user) {
             return;
         }
-
-        // Update the user
-        // this._userService.update({
-        //     ...this.user,
-        //     status
-        // }).subscribe();
     }
 
-    /**
-     * Sign out
-     */
     signOut(): void {
         this._router.navigate(['/sign-out']);
     }

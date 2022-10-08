@@ -12,6 +12,9 @@ import { mockApiServices } from 'app/mock-api';
 import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app-routing.module';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './core/auth/auth.interceptor';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy: PreloadAllModules,
@@ -30,7 +33,15 @@ const routerConfig: ExtraOptions = {
         CoreModule,
         LayoutModule,
         MarkdownModule.forRoot({}),
+        NgxWebstorageModule.forRoot()
     ],
     bootstrap: [AppComponent],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        }
+    ]
 })
 export class AppModule {}

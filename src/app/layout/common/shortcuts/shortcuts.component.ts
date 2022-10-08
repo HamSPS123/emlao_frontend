@@ -34,17 +34,8 @@ export class ShortcutsComponent implements OnInit, OnDestroy
         private _shortcutsService: ShortcutsService,
         private _overlay: Overlay,
         private _viewContainerRef: ViewContainerRef
-    )
-    {
-    }
+    ) {}
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On init
-     */
     ngOnInit(): void
     {
         // Initialize the form
@@ -70,9 +61,6 @@ export class ShortcutsComponent implements OnInit, OnDestroy
             });
     }
 
-    /**
-     * On destroy
-     */
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
@@ -86,13 +74,6 @@ export class ShortcutsComponent implements OnInit, OnDestroy
         }
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Open the shortcuts panel
-     */
     openPanel(): void
     {
         // Return if the shortcuts panel or its origin is not defined

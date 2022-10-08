@@ -10,7 +10,7 @@ import { ShopsService } from '../common/shops.service';
 })
 export class ShopListsComponent implements OnInit {
     shops: Shop[];
-    private unsubscribeAll: Subject<any> = new Subject<any>();
+    private unsubscribeAll: Subject<Shop> = new Subject<Shop>();
     constructor(private shopsService: ShopsService) {}
 
     ngOnInit(): void {
@@ -20,8 +20,9 @@ export class ShopListsComponent implements OnInit {
     getShop(): void {
         this.shopsService.shops$
             .pipe(takeUntil(this.unsubscribeAll))
-            .subscribe((res: Shop[]) => {
-                this.shops = res;
+            .subscribe((shops: Shop[]) => {
+                this.shops = shops;
+                console.log(shops);
             });
     }
 }

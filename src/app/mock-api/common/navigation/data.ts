@@ -4,41 +4,41 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 export const defaultNavigation: FuseNavigationItem[] = [
     {
         id: 'home',
-        title: 'Home',
+        title: 'ໜ້າຫຼັກ',
         type: 'basic',
         icon: 'heroicons_outline:home',
         link: '/home',
     },
     {
         id: 'shops',
-        title: 'Shops',
+        title: 'ຮ້ານຄ້າ',
         type: 'basic',
         icon: 'mat_solid:storefront',
         link: '/shop',
     },
     {
         id: 'info',
-        title: 'Info',
+        title: 'ຂໍ້ມູນ',
         type: 'group',
         icon: 'mat_solid:info',
         children: [
             {
                 id: 'about',
-                title: 'About Us',
+                title: 'ກ່ຽວກັບພວກເຮົາ',
                 type: 'basic',
                 icon: 'mat_solid:info',
                 link: '/app/about',
             },
             {
                 id: 'contact',
-                title: 'Contact',
+                title: 'ຂໍ້ມູນຕິດຕໍ່',
                 type: 'basic',
                 icon: 'mat_solid:perm_contact_calendar',
                 link: '/app/contact',
             },
             {
                 id: 'policy',
-                title: 'Policies',
+                title: 'ນະໂຍບາຍ',
                 type: 'basic',
                 icon: 'mat_solid:policy',
                 link: '/app/policy',
@@ -82,20 +82,20 @@ export const futuristicNavigation: FuseNavigationItem[] = [
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
         id: 'home',
-        title: 'Home',
+        title: 'ໜ້າຫຼັກ',
         type: 'basic',
         icon: 'heroicons_outline:home',
         link: '/home',
     },{
         id: 'shops',
-        title: 'Shops',
+        title: 'ຮ້ານຄ້າ',
         type: 'basic',
         icon: 'mat_solid:storefront',
         link: '/shop',
     },
     {
         id: 'info',
-        title: 'Info',
+        title: 'ຂໍ້ມູນ',
         type: 'group',
         icon: 'mat_solid:info',
         children: [],

@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "NotoSansLao";
+    font-style: normal;
+    font-weight: 400;
+    src: local("NotoSansLao Regular"), local("NotoSansLao-Regular"), url("NotoSansLao-Regular.woff2") format("woff2"), url("NotoSansLao-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "NotoSansLao";
+    font-style: normal;
+    font-weight: 600;
+    src: local("NotoSansLao SemiBold"), local("NotoSansLao-SemiBold"), url("NotoSansLao-600.woff2") format("woff2"), url("NotoSansLao-600.woff") format("woff");
+}
+
+@font-face {
+    font-family: "NotoSansLao";
+    font-style: normal;
+    font-weight: 700;
+    src: local("NotoSansLao Bold"), local("NotoSansLao-Bold"), url("NotoSansLao-700.woff2") format("woff2"), url("NotoSansLao-700.woff") format("woff");
+}

@@ -31,7 +31,7 @@ export class ShopsResolver implements Resolve<any> {
         state: RouterStateSnapshot
     ): Observable<any> {
         const id = route.paramMap.get('id');
-        return this.shopService.findShopOne(+id);
+        return this.shopService.findShopOne(id);
     }
 }
 
