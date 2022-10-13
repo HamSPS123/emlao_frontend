@@ -1,10 +1,17 @@
 import { Category } from './categories.interface';
 
 export interface Product {
-    id?: number;
-    name?: string;
-    price?: number;
-    shop?: number;
-    category?: Category;
-    images?: string[];
+    _id: string;
+    shop: string;
+    category: Category;
+    code: string;
+    qrcode: string;
+    name: string;
+    description: string;
+    images: string[];
+    price: number;
+    createdAt: Date;
+    updatedAt: Date;
+    isActive: boolean;
+    id: string;
 }

@@ -1,10 +1,10 @@
 <div class="flex flex-col w-full">
-    <h2 class="text-4xl text-center">Menu</h2>
+    <h2 class="text-4xl text-center">ປະເພດສິນຄ້າ</h2>
     <mat-divider class="my-4"></mat-divider>
     <mat-tab-group mat-align-tabs="center" [selectedIndex]="categories" (selectedIndexChange)="onTabsChange($event)">
         <mat-tab *ngFor="let item of categories, let i = index" [label]="item.name">
             <div class="grid w-full grid-cols-1 gap-4 mx-auto md:grid-cols-2">
-                <ng-container *ngFor="let item of productsFilter, let i = index">
+                <!-- <ng-container *ngFor="let item of productsFilter, let i = index">
                     <fuse-card class="relative flex w-full max-w-100 filter-info">
                         <a [routerLink]="['/shop/product', item.id]"><img class="object-cover h-full w-30" [src]="item.images" alt="Card cover image"></a>
                         <div class="relative flex flex-col justify-between flex-auto p-6 md:flex-row">
@@ -22,12 +22,12 @@
                             </div>
                         </div>
                     </fuse-card>
-                </ng-container>
-                <ng-container *ngIf="productsFilter.length === 0">
+                </ng-container> -->
+                <!-- <ng-container *ngIf="productsFilter.length === 0">
                     <fuse-alert [type]="'warn'" [appearance]="'outline'">
                         <span fuseAlertTitle>Product 0</span> There is no product in this category.
                     </fuse-alert>
-                </ng-container>
+                </ng-container> -->
             </div>
         </mat-tab>
     </mat-tab-group>

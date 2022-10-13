@@ -21,9 +21,9 @@ export class ProductsComponent implements OnInit {
     }
 
     getProduct() {
-        this.shopsService.product$.pipe().subscribe((res: Product) => {
-            this.product = res;
-        });
+        // this.shopsService.product$.pipe().subscribe((res: Product) => {
+        //     this.product = res;
+        // });
     }
 
     minusAmount() {

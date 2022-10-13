@@ -5,7 +5,8 @@
 
         <!-- Cover image -->
         <div>
-            <img class="object-cover h-40 lg:h-80" [src]="shop?.images?.coverPhoto" alt="Cover image">
+            <img class="object-cover h-40 lg:h-80" *ngIf="shop.images.coverPhoto" [src]="shop?.images?.coverPhoto" alt="Cover image">
+            <img class="object-cover h-40 lg:h-80" *ngIf="!shop.images.coverPhoto" [src]="'https://dummyimage.com/1270x400/828082/fff&text=Cover'" alt="Cover image">
         </div>
 
         <!-- User info -->
@@ -13,7 +14,8 @@
 
             <!-- Avatar -->
             <div class="rounded-full -mt-26 lg:-mt-22">
-                <img class="w-32 h-32 rounded-full ring-4 ring-bg-card" [src]="shop?.images?.profilePhoto" alt="User avatar">
+                <img class="w-32 h-32 rounded-full ring-4 ring-bg-card" *ngIf="shop.images.profilePhoto" [src]="shop?.images?.profilePhoto" alt="User avatar">
+                <img class="w-32 h-32 rounded-full ring-4 ring-bg-card" *ngIf="!shop.images.profilePhoto" [src]="'https://dummyimage.com/512x512/828082/fff&text=Image'" alt="User avatar">
             </div>
 
             <!-- Details -->

@@ -5,12 +5,14 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { ShopsService } from '../shops/common/shops.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HomeResolver implements Resolve<boolean> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+export class HomeResolver implements Resolve<any> {
+    constructor(private shopsService: ShopsService) {}
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
+    return this.shopsService.findShop();
   }
 }

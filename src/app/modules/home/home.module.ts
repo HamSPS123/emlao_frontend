@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { FuseAlertModule } from '@fuse/components/alert';
 import { SharedModule } from 'app/shared/shared.module';
+import { ExtensionModule } from '../common/extension.module';
 
 @NgModule({
     declarations: [HomeComponent],
@@ -23,6 +24,7 @@ import { SharedModule } from 'app/shared/shared.module';
         MatInputModule,
         FuseAlertModule,
         SharedModule,
+        ExtensionModule
     ],
 })
 export class HomeModule {}

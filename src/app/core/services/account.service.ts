@@ -55,8 +55,6 @@ export class AccountService {
 
         return this.http.get<any>(url, { headers: token }).subscribe(
             (response) => {
-                console.log(response);
-
                 if (response.statusCode === 200) {
                     const user = response.data;
                     const role = user.account.role.code.toUpperCase();

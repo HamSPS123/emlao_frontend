@@ -41,7 +41,7 @@ export class ShopsService {
 
         return this.http.get<Shop[]>(url).pipe(
             tap((response: any) => {
-                if(response.statusCode === 200 && response.data){
+                if (response.statusCode === 200 && response.data) {
                     this.dataStore.items = response.data;
                     this.shops.next(Object.assign({}, this.dataStore).items);
                 }
@@ -50,26 +50,32 @@ export class ShopsService {
     }
 
     findShopOne(id: string) {
-        const path: string = 'assets/data/shops.json';
+        const url = `${this.apiUrl}/shops/${id}`;
 
-        return this.http.get<Shop[]>(path).pipe(
-            tap((res: Shop[]) => {
-                const shop = res.filter((item) => item._id === id);
+        console.log(url);
 
-                this.shop.next(shop[0]);
+        return this.http.get<Shop>(url).pipe(
+            tap((respsonse: any) => {
+                if (respsonse.statusCode === 200 && respsonse.data) {
+                    const data = respsonse.data;
+                    this.shop.next(data);
+                }
             })
         );
     }
 
-    findCategory(shop: number) {
-        const path = 'assets/data/categories.json';
+    findCategory(shop: string) {
+        const url = `${this.apiUrl}/categories/find/${shop}`;
 
-        return this.http.get<Category[]>(path).pipe(
-            tap((res: Category[]) => {
-                const categories = res.filter((item) => item.shop === shop);
-
-                this.dataStore.items = categories;
-                this.categories.next(Object.assign({}, this.dataStore).items);
+        return this.http.get<Category[]>(url).pipe(
+            tap((response: any) => {
+                console.log(response);
+                if (response.statusCode === 200 && response.data) {
+                    this.dataStore.items = response.data;
+                    this.categories.next(
+                        Object.assign({}, this.dataStore).items
+                    );
+                }
             })
         );
     }
@@ -79,21 +85,18 @@ export class ShopsService {
 
         return this.http.get<Product[]>(path).pipe(
             tap((res: Product[]) => {
-                const products = res.filter((item) => item.shop === shop);
-
-                this.dataStore.items = products;
+                this.dataStore.items = res;
                 this.products.next(Object.assign({}, this.dataStore).items);
             })
         );
     }
 
     findProductOne(id: number) {
-        const path = 'assets/data/products.json';
-        return this.http.get<Product[]>(path).pipe(
-            tap((res: Product[]) => {
-                const product = res.filter((item) => item.id === id);
-
-                this.product.next(product[0]);
+        const url = `${this.apiUrl}/products/${id}`;
+        return this.http.get<Product[]>(url).pipe(
+            tap((res) => {
+                // this.product.next(res);
+                console.log(res);
             })
         );
     }

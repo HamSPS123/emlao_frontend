@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
     imports: [
@@ -37,6 +38,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
         MatSelectModule,
         MatTableModule,
         MatPaginatorModule,
+        MatSidenavModule
     ],
     exports: [
         CommonModule,
@@ -57,7 +59,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
         MatSelectModule,
         MatTableModule,
         MatPaginatorModule,
-
+        MatSidenavModule
     ]
 })
 export class SharedModule

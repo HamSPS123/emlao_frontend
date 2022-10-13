@@ -16,8 +16,9 @@ export class ShopDetailsComponent implements OnInit {
     }
 
     getShop(): void {
-        this.shopsService.shop$.pipe().subscribe((res) => {
-            this.shop = res;
+        this.shopsService.shop$.pipe().subscribe((response) => {
+            this.shop = response;
+            console.log(response);
         });
     }
 }

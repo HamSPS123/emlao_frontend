@@ -14,7 +14,7 @@ import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app-routing.module';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './core/auth/auth.interceptor';
+import { AuthInterceptor } from './core/interceptor/auth.interceptor';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy: PreloadAllModules,

@@ -17,7 +17,7 @@ export class MenusComponent implements OnInit {
     categories: Category[];
     // categories: Observable<Category[]>;
     products: Product[];
-    productsFilter: Product[];
+    productsFilter: Product[] = [];
 
     constructor(
         private shopsService: ShopsService,
@@ -32,18 +32,17 @@ export class MenusComponent implements OnInit {
     }
 
     getCategory(): void {
-        this.shopsService.categories$.pipe().subscribe((res) => {
-            const categories = [{ id: 0, name: 'All' }, ...res];
-            this.categories = categories;
+        this.shopsService.categories$.pipe().subscribe((response) => {
+            this.categories = response;
             this.cdr.markForCheck();
         });
     }
 
     getProduct(): void {
-        this.shopsService.products$.pipe().subscribe((res) => {
-            this.products = res;
-            this.cdr.markForCheck();
-        });
+        // this.shopsService.products$.pipe().subscribe((res) => {
+        //     this.products = res;
+        //     this.cdr.markForCheck();
+        // });
     }
 
     onTabsChange(id: number) {
@@ -55,12 +54,12 @@ export class MenusComponent implements OnInit {
     }
 
     onFilterProducts(id: number) {
-        const category = this.categories[id];
+        // const category = this.categories[id];
 
-        const filter = this.products.filter(
-            (cate) => cate.category.id === category.id
-        );
-        this.productsFilter = filter;
+        // const filter = this.products.filter(
+        //     (cate) => cate.category.id === category.id
+        // );
+        // this.productsFilter = filter;
     }
 
     onResetFilter() {

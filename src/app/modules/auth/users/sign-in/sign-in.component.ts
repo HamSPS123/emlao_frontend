@@ -11,8 +11,8 @@ import {
 import { AccountService } from 'app/core/services/account.service';
 import { JwtService } from 'app/core/services/jwt.service';
 import { UtilsService } from 'app/shared/services/utils.service';
-import { AuthService } from '../common/auth.service';
-import { SignInModel } from '../common/sign-in.model';
+import { AuthService } from '../../common/auth.service';
+import { SignInModel } from '../../common/sign-in.model';
 
 @Component({
     selector: 'app-sign-in',

@@ -46,7 +46,7 @@ export class ShopDetailResolver implements Resolve<any> {
     ): Observable<any> {
         const id = route.paramMap.get('id');
         return forkJoin([
-            this.shopsService.findCategory(+id),
+            this.shopsService.findCategory(id),
             this.shopsService.findProducts(+id),
         ]);
     }
