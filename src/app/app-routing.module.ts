@@ -50,7 +50,6 @@ export const appRoutes: Route[] = [
             {path: 'carts', loadChildren: () => import('app/modules/apps/carts/carts.module').then(m => m.CartsModule)},
             {path: 'check-out', loadChildren: () => import('app/modules/apps/check-out/check-out.module').then(m => m.CheckOutModule)},
             {path: 'sign-out', loadChildren: () => import('app/modules/auth/sign-out/sign-out.module').then(m => m.AuthSignOutModule)},
-            {path: 'manages', loadChildren: () => import('app/modules/apps/manages/manages.module').then(m => m.ManagesModule)},
             // {path: 'unlock-session', loadChildren: () => import('app/modules/auth/unlock-session/unlock-session.module').then(m => m.AuthUnlockSessionModule)}
         ]
     },
@@ -63,6 +62,12 @@ export const appRoutes: Route[] = [
         resolve: {
             initialData: InitialDataResolver
         },
+        data: {
+            role: 'SHOP'
+        },
+        children: [
+            {path: 'manages', loadChildren: () => import('app/modules/apps/manages/manages.module').then(m => m.ManagesModule)},
+        ]
     },
 
     {

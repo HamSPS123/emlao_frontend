@@ -40,18 +40,21 @@ export class AccountService {
         this.storage.clear('USER');
     }
 
-    // checkUserRole(roleCode: string): void {
-    //     const role = roleCode.toUpperCase();
+    checkUserRole(roleCode: string): void {
+        const role = roleCode.toUpperCase();
 
-    //     if(role) {
-    //         if(role === CUST)
-    //     }
-    // }
+        if(role) {
+            if(role === 'CUST'){
+                this.router.navigateByUrl('/home');
+            }else{
+                this.router.navigateByUrl('/home');
+            }
+        }
+    }
 
     getProfile(): Subscription {
         const url: string = `${this.apiUrl}/auth/profile`;
         const token = this.jwtService.token();
-        console.log(token);
 
         return this.http.get<any>(url, { headers: token }).subscribe(
             (response) => {
@@ -61,14 +64,9 @@ export class AccountService {
 
                     this.setUserLogin(user);
                     this.setRole(role);
-                    // this.checkuserRole(role);
-                    this.router.navigateByUrl('/home');
+                    this.checkUserRole(role);
                 }
             },
-            (error) => {
-                const errorMessage = error.error.message;
-                console.log(errorMessage);
-            }
         );
     }
 }

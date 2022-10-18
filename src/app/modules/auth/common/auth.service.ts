@@ -22,10 +22,21 @@ export class AuthService {
         this.apiUrl = environment.apiUrl;
     }
 
-    signIn(body: Object): Observable<any> {
+    userSignIn(body: Object): Observable<any> {
         const url: string = `${this.apiUrl}/auth/user/sign-in`;
         return this.http.post<any>(url, body).pipe(
             map((response: any) => {
+                if (response?.statusCode === 200 && response?.data) {
+                    return response.data;
+                }
+            })
+        );
+    }
+
+    adminSignIn(body: Object) {
+        const url: string = `${this.apiUrl}/auth/admin/sign-in`;
+        return this.http.post<any>(url, body).pipe(
+            map((response) => {
                 if (response?.statusCode === 200 && response?.data) {
                     return response.data;
                 }

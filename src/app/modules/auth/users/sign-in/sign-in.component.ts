@@ -66,7 +66,7 @@ export class SignInComponent implements OnInit {
 
         const formData = this.formGroup.value;
 
-        this.authService.signIn(formData).subscribe({
+        this.authService.userSignIn(formData).subscribe({
             next: (response) => {
                 if (response) {
                     const token = response.accessToken;

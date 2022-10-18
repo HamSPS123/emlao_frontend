@@ -2,7 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { FuseAlertType } from '@fuse/components/alert';
-import { ReactiveFormConfig, RxwebValidators } from '@rxweb/reactive-form-validators';
+import {
+    ReactiveFormConfig,
+    RxwebValidators,
+} from '@rxweb/reactive-form-validators';
 import { AccountService } from 'app/core/services/account.service';
 import { JwtService } from 'app/core/services/jwt.service';
 import { UtilsService } from 'app/shared/services/utils.service';
@@ -58,7 +61,7 @@ export class AdminSignInComponent implements OnInit {
 
         const formData = this.formGroup.value;
 
-        this.authService.signIn(formData).subscribe({
+        this.authService.adminSignIn(formData).subscribe({
             next: (response) => {
                 if (response) {
                     const token = response.accessToken;
